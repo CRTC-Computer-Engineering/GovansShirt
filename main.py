@@ -5,7 +5,7 @@ Date Created: January 1, 2020
 Professor: Mrs. Marcou
 Block: C
 
-Project Description: 
+Project Description:
 Create a program for Mr. Mungovan to enter clothing orders and generate a bill for his customers.
 The program should include user input for: Customer ID, Type of clothing, Sizes, Quantities,
 Color, and Unit Price. The program must also include math expressions that will calculate
@@ -13,6 +13,7 @@ the quantity/type breakdown costs and the final cost.
 
 Pseudocode:
 
+bing bong bing bing bong bong
 
 
 
@@ -27,11 +28,11 @@ import tables # imported from C:\...\GovansShirt
 class Menu(wx.Panel):
     def __init__(self, parent):
         wx.Panel.__init__(self, parent,size=(400,500))
-        
+
         # the edit control - one line version.
         self.id = wx.StaticText(self, label="Your ID :", pos=(20, 30))
         self.editid = wx.TextCtrl(self, value="Enter your ID here", pos=(150, 30), size=(140,-1))
-        
+
         # shows logs in app.
 
         # A multiline TextCtrl - This is here to show how the events work in this program, don't pay too much attention to it
@@ -81,7 +82,7 @@ class Menu(wx.Panel):
 
 
 app = wx.App(False) #   Creates a new app
-frame = wx.Frame(None, wx.ID_ANY, "Mucgovans Shirt", size=(400,500)) #   top-level window 
+frame = wx.Frame(None, wx.ID_ANY, "Mucgovans Shirt", size=(400,500)) #   top-level window
 panel = Menu(frame)
 frame.Show()#  Shows the frame
 app.MainLoop()#    applies the user feedback loop
