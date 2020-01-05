@@ -27,7 +27,7 @@ import tables # imported from C:\...\GovansShirt
 
 class Menu(wx.Panel):
     def __init__(self, parent):
-        wx.Panel.__init__(self, parent,size=(400,500))
+        wx.Panel.__init__(self, parent,size=(500,600))
 
         # the edit control - one line version.
         self.id = wx.StaticText(self, label="Your ID :", pos=(20, 30))
@@ -36,7 +36,7 @@ class Menu(wx.Panel):
         # shows logs in app.
 
         # A multiline TextCtrl - This is here to show how the events work in this program, don't pay too much attention to it
-        # self.logger = wx.TextCtrl(self, pos=(300,20), size=(200,300), style=wx.TE_MULTILINE | wx.TE_READONLY)
+        self.logger = wx.TextCtrl(self, pos=(300,20), size=(150,300), style=wx.TE_MULTILINE | wx.TE_READONLY)
 
         # A button
         self.button =wx.Button(self, label="Done", pos=(150, 325))
@@ -82,7 +82,7 @@ class Menu(wx.Panel):
 
 
 app = wx.App(False) #   Creates a new app
-frame = wx.Frame(None, wx.ID_ANY, "Mucgovans Shirt", size=(400,500)) #   top-level window
+frame = wx.Frame(None, wx.ID_ANY, "Mucgovans Shirt", size=(500,600)) #   top-level window
 panel = Menu(frame)
 frame.Show()#  Shows the frame
 app.MainLoop()#    applies the user feedback loop
