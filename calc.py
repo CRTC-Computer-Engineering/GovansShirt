@@ -1,4 +1,3 @@
-
 """
 
 This file contains all the calculations necessary
@@ -58,7 +57,20 @@ def CalculatePrice():
             print ("Errror")
     else:
         print ("Gay")
-    if color == color[1]:
-        price =
+    if color == Color[0]:
+        price = price +ColorPrice[0]
+    elif color == Color[1]:
+        price = price + ColorPrice[1]
+    elif color == Color[2]:
+        price = price + ColorPrice[2]
+    elif color == Color[3]:
+        price = price + ColorPrice[3]
+    elif color == Color[4]:
+        price = price + ColorPrice[4]
+    elif color == Color[5]:
+        price = price + ColorPrice[5]
+    else:
+        print ("Errror")
+
     print (price)
 CalculatePrice()
