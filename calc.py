@@ -1,3 +1,5 @@
+
+
 """
 This file contains all the calculations necessary
 to provide totals and show processes along the way
@@ -14,3 +16,5 @@ def CalculatePrice():
     print ("Size: " + size)
     print (str(TypePrice) + "+" + str(ColorPrice) "+" + str(SizePrice))
     print ("Cost: " + price)
+
+
