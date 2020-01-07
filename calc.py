@@ -1,7 +1,6 @@
+
 """
-<<<<<<< Updated upstream
-"""
-=======
+
 This file contains all the calculations necessary
 to provide totals and show processes along the way
 
@@ -63,4 +62,3 @@ def CalculatePrice():
         price =
     print (price)
 CalculatePrice()
->>>>>>> Stashed changes
