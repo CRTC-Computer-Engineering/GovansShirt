@@ -13,10 +13,7 @@ https://github.com/wxFormBuilder/wxFormBuilder/releases/download/v3.9.0/wxFormBu
 Make sure to add this to the end of a generated python program
 ```
 app = wx.App()
-
 frame = MacGuvon(None)
-
 frame.Show()
-
 app.MainLoop()
 ```
