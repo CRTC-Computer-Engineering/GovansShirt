@@ -11,8 +11,12 @@ Download wxbuilder to get started
 https://github.com/wxFormBuilder/wxFormBuilder/releases/download/v3.9.0/wxFormBuilder_v3.9.0.exe
 
 Make sure to add this to the end of a generated python program
-
+```
 app = wx.App()
-frame = <class name>(None)
+
+frame = MacGuvon(None)
+
 frame.Show()
+
 app.MainLoop()
+```
