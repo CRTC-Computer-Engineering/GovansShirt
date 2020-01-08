@@ -1,88 +1,113 @@
-"""
-Project: Mungovans Order Calculator
-Members: Aidan Boucher, Travis Bettens
-Date Created: January 1, 2020
-Professor: Mrs. Marcou
-Block: C
+# -*- coding: utf-8 -*-
 
-Project Description:
-Create a program for Mr. Mungovan to enter clothing orders and generate a bill for his customers.
-The program should include user input for: Customer ID, Type of clothing, Sizes, Quantities,
-Color, and Unit Price. The program must also include math expressions that will calculate
-the quantity/type breakdown costs and the final cost.
+###########################################################################
+## Python code generated with wxFormBuilder (version Oct 26 2018)
+## http://www.wxformbuilder.org/
+##
+## PLEASE DO *NOT* EDIT THIS FILE!
+###########################################################################
 
-Pseudocode:
+import wx
+import wx.xrc
 
-bing bong bing bing bong bong
+###########################################################################
+## Class MacGuvon
+###########################################################################
 
+class MacGuvon ( wx.Frame ):
 
+	def __init__( self, parent ):
+		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = u"MacGuvons Order", pos = wx.DefaultPosition, size = wx.Size( 500,700 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
 
-"""
+		self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
 
+		bSizer3 = wx.BoxSizer( wx.VERTICAL )
 
-#!/usr/bin/env python
-import wx # the library used to make the app
-import calc # imported from C:\...\GovansShirt
-import tables # imported from C:\...\GovansShirt
+		self.m_staticText2 = wx.StaticText( self, wx.ID_ANY, u"Name: ", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_staticText2.Wrap( -1 )
 
-class Menu(wx.Panel):
-    def __init__(self, parent):
-        wx.Panel.__init__(self, parent,size=(500,600))
+		bSizer3.Add( self.m_staticText2, 0, wx.ALL, 5 )
 
-        # the edit control - one line version.
-        self.id = wx.StaticText(self, label="Your ID :", pos=(20, 30))
-        self.editid = wx.TextCtrl(self, value="Enter your ID here", pos=(150, 30), size=(140,-1))
+		self.NameTextCtrl = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, 0 )
+		bSizer3.Add( self.NameTextCtrl, 0, wx.ALL, 5 )
 
-        # shows logs in app.
+		self.m_staticText3 = wx.StaticText( self, wx.ID_ANY, u"ID: ", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_staticText3.Wrap( -1 )
 
-        # A multiline TextCtrl - This is here to show how the events work in this program, don't pay too much attention to it
-        self.logger = wx.TextCtrl(self, pos=(300,20), size=(150,300), style=wx.TE_MULTILINE | wx.TE_READONLY)
+		bSizer3.Add( self.m_staticText3, 0, wx.ALL, 5 )
 
-        # A button
-        self.button =wx.Button(self, label="Done", pos=(150, 325))
-        self.Bind(wx.EVT_BUTTON, self.OnClick,self.button)
+		self.IDTextCtrl = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, 0 )
+		bSizer3.Add( self.IDTextCtrl, 0, wx.ALL, 5 )
 
-        # the edit control - one line version.
-        self.lblname = wx.StaticText(self, label="Your name :", pos=(20,60))
-        self.editname = wx.TextCtrl(self, value="Enter here your name", pos=(150, 60), size=(140,-1))
-        self.Bind(wx.EVT_TEXT, self.EvtText, self.editname)
-        self.Bind(wx.EVT_CHAR, self.EvtChar, self.editname)
+		self.m_staticText4 = wx.StaticText( self, wx.ID_ANY, u"Shirt Size?", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_staticText4.Wrap( -1 )
 
-        # the combobox Control
-        # dropdown with options
-        self.sampleList = ['small', 'medium', 'large', 'Extra Large']
-        self.lblhear = wx.StaticText(self, label="Shirt size?", pos=(20, 90))
-        self.edithear = wx.ComboBox(self, pos=(150, 90), size=(95, -1), choices=self.sampleList, style=wx.CB_DROPDOWN)
-        self.Bind(wx.EVT_COMBOBOX, self.EvtComboBox, self.edithear)
-        self.Bind(wx.EVT_TEXT, self.EvtText,self.edithear)
+		bSizer3.Add( self.m_staticText4, 0, wx.ALL, 5 )
 
-        # Checkbox
-        self.insure = wx.CheckBox(self, label="Do you want Insured Shipment ?", pos=(20,140))
-        self.Bind(wx.EVT_CHECKBOX, self.EvtCheckBox, self.insure)
+		m_comboBox1Choices = [ u"small", u"medium", u"large", u"extra large" ]
+		self.m_comboBox1 = wx.ComboBox( self, wx.ID_ANY, u"small", wx.DefaultPosition, wx.DefaultSize, m_comboBox1Choices, 0 )
+		bSizer3.Add( self.m_comboBox1, 0, wx.ALL, 5 )
 
-        # Radio Boxes
-        radioList = ['blue', 'red', 'yellow', 'orange', 'green', 'purple', 'navy blue', 'black', 'gray']
-        rb = wx.RadioBox(self, label="What color would you like ?", pos=(20, 170), choices=radioList,  majorDimension=3,
-                         style=wx.RA_SPECIFY_COLS)
-        self.Bind(wx.EVT_RADIOBOX, self.EvtRadioBox, rb)
+		self.m_staticText5 = wx.StaticText( self, wx.ID_ANY, u"Type of Clothing?", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_staticText5.Wrap( -1 )
 
-    def EvtRadioBox(self, event):
-        self.logger.AppendText('EvtRadioBox: %d\n' % event.GetInt())
-    def EvtComboBox(self, event):
-        self.logger.AppendText('EvtComboBox: %s\n' % event.GetString())
-    def OnClick(self,event):
-        self.logger.AppendText(" Click on object with Id %d\n" %event.GetId())
-    def EvtText(self, event):
-        self.logger.AppendText('EvtText: %s\n' % event.GetString())
-    def EvtChar(self, event):
-        self.logger.AppendText('EvtChar: %d\n' % event.GetKeyCode())
-        event.Skip()
-    def EvtCheckBox(self, event):
-        self.logger.AppendText('EvtCheckBox: %d\n' % event.Checked())
+		bSizer3.Add( self.m_staticText5, 0, wx.ALL, 5 )
+
+		m_comboBox3Choices = [ u"t-shirt", u"longsleeve", u"sweatshirt", u"uniform", u"performance" ]
+		self.m_comboBox3 = wx.ComboBox( self, wx.ID_ANY, u"t-shirt", wx.DefaultPosition, wx.DefaultSize, m_comboBox3Choices, 0 )
+		bSizer3.Add( self.m_comboBox3, 0, wx.ALL, 5 )
+
+		ColorRadioBoxChoices = [ u"red", u"blue", u"green", u"yellow", u"orange", u"purple", u"gray", u"black", u"white", u"pink" ]
+		self.ColorRadioBox = wx.RadioBox( self, wx.ID_ANY, u"Color for the item?", wx.DefaultPosition, wx.Size( 310,150 ), ColorRadioBoxChoices, 4, wx.RA_SPECIFY_COLS )
+		self.ColorRadioBox.SetSelection( 0 )
+		self.ColorRadioBox.SetForegroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_WINDOW ) )
+		self.ColorRadioBox.SetMaxSize( wx.Size( 310,150 ) )
+
+		bSizer3.Add( self.ColorRadioBox, 0, wx.ALL, 5 )
+
+		self.m_staticText7 = wx.StaticText( self, wx.ID_ANY, u"How many of this item?", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_staticText7.Wrap( -1 )
+
+		bSizer3.Add( self.m_staticText7, 0, wx.ALL, 5 )
+
+		self.AmountTextCtrl = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, 0 )
+		bSizer3.Add( self.AmountTextCtrl, 0, wx.ALL, 5 )
 
 
-app = wx.App(False) #   Creates a new app
-frame = wx.Frame(None, wx.ID_ANY, "Mucgovans Shirt", size=(500,600)) #   top-level window
-panel = Menu(frame)
-frame.Show()#  Shows the frame
-app.MainLoop()#    applies the user feedback loop
+		self.SetSizer( bSizer3 )
+		self.Layout()
+		self.m_menubar2 = wx.MenuBar( 0 )
+		self.m_menu1 = wx.Menu()
+		self.m_menuItem1 = wx.MenuItem( self.m_menu1, wx.ID_ANY, u"Save", wx.EmptyString, wx.ITEM_NORMAL )
+		self.m_menu1.Append( self.m_menuItem1 )
+
+		self.m_menuItem2 = wx.MenuItem( self.m_menu1, wx.ID_ANY, u"Exit", wx.EmptyString, wx.ITEM_NORMAL )
+		self.m_menu1.Append( self.m_menuItem2 )
+
+		self.m_menubar2.Append( self.m_menu1, u"File" )
+
+		self.SetMenuBar( self.m_menubar2 )
+
+
+		self.Centre( wx.BOTH )
+
+		# Connect Events
+		self.Bind( wx.EVT_MENU, self.SaveFunc, id = self.m_menuItem1.GetId() )
+		self.Bind( wx.EVT_MENU, self.ExitFunc, id = self.m_menuItem2.GetId() )
+
+	def __del__( self ):
+		pass
+
+
+	# Virtual event handlers, overide them in your derived class
+	def SaveFunc( self, event ):
+		#
+
+	def ExitFunc( self, event ):
+		#
+
+
+app = wx.App()
+frame = MacGuvon(None)
+frame.Show()
+app.MainLoop()

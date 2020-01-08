@@ -1,9 +1,12 @@
+
+
 """
 
 This file contains all the calculations necessary
 to provide totals and show processes along the way
 
 """
+
 #Each list contains prices which start at Small and go to XLarge from left ot right
 Small = True
 
@@ -74,3 +77,17 @@ def CalculatePrice():
 
     print (price)
 CalculatePrice()
+=======
+Color = 1
+Size = 1
+Type = 1
+
+def CalculatePrice():
+    price = TypePrice + ColorPrice + SizePrice
+    print ("Type: " + type)
+    print ("Color:" + color)
+    print ("Size: " + size)
+    print (str(TypePrice) + "+" + str(ColorPrice) "+" + str(SizePrice))
+    print ("Cost: " + price)
+
+
