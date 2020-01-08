@@ -101,10 +101,10 @@ class MacGuvon ( wx.Frame ):
 
 	# Virtual event handlers, overide them in your derived class
 	def SaveFunc( self, event ):
-		event.Skip()
+		#
 
 	def ExitFunc( self, event ):
-		event.Skip()
+		#
 
 
 app = wx.App()
