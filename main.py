@@ -21,41 +21,41 @@ class MacGuvon ( wx.Frame ):
 
 		self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
 
-		bSizer3 = wx.BoxSizer( wx.VERTICAL )
+		BoxSizer = wx.BoxSizer( wx.VERTICAL )
 
-		self.m_staticText2 = wx.StaticText( self, wx.ID_ANY, u"Name: ", wx.DefaultPosition, wx.DefaultSize, 0 )
-		self.m_staticText2.Wrap( -1 )
+		self.name = wx.StaticText( self, wx.ID_ANY, u"Name: ", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.name.Wrap( -1 )
 
-		bSizer3.Add( self.m_staticText2, 0, wx.ALL, 5 )
+		BoxSizer.Add( self.name, 0, wx.ALL, 5 )
 
 		self.NameTextCtrl = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, 0 )
-		bSizer3.Add( self.NameTextCtrl, 0, wx.ALL, 5 )
+		BoxSizer.Add( self.NameTextCtrl, 0, wx.ALL, 5 )
 
-		self.m_staticText3 = wx.StaticText( self, wx.ID_ANY, u"ID: ", wx.DefaultPosition, wx.DefaultSize, 0 )
-		self.m_staticText3.Wrap( -1 )
+		self.ID = wx.StaticText( self, wx.ID_ANY, u"ID: ", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.ID.Wrap( -1 )
 
-		bSizer3.Add( self.m_staticText3, 0, wx.ALL, 5 )
+		BoxSizer.Add( self.ID, 0, wx.ALL, 5 )
 
 		self.IDTextCtrl = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, 0 )
-		bSizer3.Add( self.IDTextCtrl, 0, wx.ALL, 5 )
+		BoxSizer.Add( self.IDTextCtrl, 0, wx.ALL, 5 )
 
-		self.m_staticText4 = wx.StaticText( self, wx.ID_ANY, u"Shirt Size?", wx.DefaultPosition, wx.DefaultSize, 0 )
-		self.m_staticText4.Wrap( -1 )
+		self.ShirtSize = wx.StaticText( self, wx.ID_ANY, u"Shirt Size?", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.ShirtSize.Wrap( -1 )
 
-		bSizer3.Add( self.m_staticText4, 0, wx.ALL, 5 )
+		BoxSizer.Add( self.ShirtSize, 0, wx.ALL, 5 )
 
-		m_comboBox1Choices = [ u"small", u"medium", u"large", u"extra large" ]
-		self.m_comboBox1 = wx.ComboBox( self, wx.ID_ANY, u"small", wx.DefaultPosition, wx.DefaultSize, m_comboBox1Choices, 0 )
-		bSizer3.Add( self.m_comboBox1, 0, wx.ALL, 5 )
+		SizeComboBoxChoices = [ u"small", u"medium", u"large", u"extra large" ]
+		self.SizeComboBox = wx.ComboBox( self, wx.ID_ANY, u"small", wx.DefaultPosition, wx.DefaultSize, SizeComboBoxChoices, 0 )
+		BoxSizer.Add( self.SizeComboBox, 0, wx.ALL, 5 )
 
-		self.m_staticText5 = wx.StaticText( self, wx.ID_ANY, u"Type of Clothing?", wx.DefaultPosition, wx.DefaultSize, 0 )
-		self.m_staticText5.Wrap( -1 )
+		self.type = wx.StaticText( self, wx.ID_ANY, u"Type of Clothing?", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.type.Wrap( -1 )
 
-		bSizer3.Add( self.m_staticText5, 0, wx.ALL, 5 )
+		BoxSizer.Add( self.type, 0, wx.ALL, 5 )
 
-		m_comboBox3Choices = [ u"t-shirt", u"longsleeve", u"sweatshirt", u"uniform", u"performance" ]
-		self.m_comboBox3 = wx.ComboBox( self, wx.ID_ANY, u"t-shirt", wx.DefaultPosition, wx.DefaultSize, m_comboBox3Choices, 0 )
-		bSizer3.Add( self.m_comboBox3, 0, wx.ALL, 5 )
+		TypeComboBoxChoices = [ u"t-shirt", u"longsleeve", u"sweatshirt", u"uniform", u"performance" ]
+		self.TypeComboBox = wx.ComboBox( self, wx.ID_ANY, u"t-shirt", wx.DefaultPosition, wx.DefaultSize, TypeComboBoxChoices, 0 )
+		BoxSizer.Add( self.TypeComboBox, 0, wx.ALL, 5 )
 
 		ColorRadioBoxChoices = [ u"red", u"blue", u"green", u"yellow", u"orange", u"purple", u"gray", u"black", u"white", u"pink" ]
 		self.ColorRadioBox = wx.RadioBox( self, wx.ID_ANY, u"Color for the item?", wx.DefaultPosition, wx.Size( 310,150 ), ColorRadioBoxChoices, 4, wx.RA_SPECIFY_COLS )
@@ -63,18 +63,26 @@ class MacGuvon ( wx.Frame ):
 		self.ColorRadioBox.SetForegroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_WINDOW ) )
 		self.ColorRadioBox.SetMaxSize( wx.Size( 310,150 ) )
 
-		bSizer3.Add( self.ColorRadioBox, 0, wx.ALL, 5 )
+		BoxSizer.Add( self.ColorRadioBox, 0, wx.ALL, 5 )
 
-		self.m_staticText7 = wx.StaticText( self, wx.ID_ANY, u"How many of this item?", wx.DefaultPosition, wx.DefaultSize, 0 )
-		self.m_staticText7.Wrap( -1 )
+		self.Amount = wx.StaticText( self, wx.ID_ANY, u"How many of this item?", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.Amount.Wrap( -1 )
 
-		bSizer3.Add( self.m_staticText7, 0, wx.ALL, 5 )
+		BoxSizer.Add( self.Amount, 0, wx.ALL, 5 )
 
 		self.AmountTextCtrl = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, 0 )
-		bSizer3.Add( self.AmountTextCtrl, 0, wx.ALL, 5 )
+		BoxSizer.Add( self.AmountTextCtrl, 0, wx.ALL, 5 )
+
+		self.Done = wx.Button( self, wx.ID_ANY, u"Done", wx.DefaultPosition, wx.DefaultSize, 0 )
+		BoxSizer.Add( self.Done, 0, wx.ALL, 5 )
+
+		self.label = wx.StaticText( self, wx.ID_ANY, u"MyLabel", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.label.Wrap( -1 )
+
+		BoxSizer.Add( self.label, 0, wx.ALL, 5 )
 
 
-		self.SetSizer( bSizer3 )
+		self.SetSizer( BoxSizer )
 		self.Layout()
 		self.m_menubar2 = wx.MenuBar( 0 )
 		self.m_menu1 = wx.Menu()
@@ -92,6 +100,8 @@ class MacGuvon ( wx.Frame ):
 		self.Centre( wx.BOTH )
 
 		# Connect Events
+		self.ColorRadioBox.Bind( wx.EVT_RADIOBOX, self.myFunc )
+		self.Done.Bind( wx.EVT_BUTTON, self.buttonFunc )
 		self.Bind( wx.EVT_MENU, self.SaveFunc, id = self.m_menuItem1.GetId() )
 		self.Bind( wx.EVT_MENU, self.ExitFunc, id = self.m_menuItem2.GetId() )
 
@@ -100,11 +110,19 @@ class MacGuvon ( wx.Frame ):
 
 
 	# Virtual event handlers, overide them in your derived class
+	def myFunc( self, event ):
+		event.Skip()
+
+	def buttonFunc( self, event ):
+		getLabelText = self.SizeComboBox.GetSelection()
+		self.label.SetLabel(getLabelText)
+		self.Layout()
+
 	def SaveFunc( self, event ):
-		#
+		event.Skip()
 
 	def ExitFunc( self, event ):
-		#
+		event.Skip()
 
 
 app = wx.App()
