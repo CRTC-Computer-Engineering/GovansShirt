@@ -101,6 +101,7 @@ class MacGuvon ( wx.Frame ):
 
 	# Virtual event handlers, overide them in your derived class
 	def SaveFunc( self, event ):
+        GetLineText(self,-1)
 		#
 
 	def ExitFunc( self, event ):
